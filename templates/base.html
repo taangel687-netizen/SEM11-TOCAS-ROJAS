@@ -1,0 +1,28 @@
+{% load static %}<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nexo Tech: tecnología seleccionada para tu ritmo de vida.">
+  <title>{% block title %}Nexo Tech{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+</head>
+<body>
+  <div class="announcement">TECNOLOGÍA QUE SE ADAPTA A TI <span>✦</span> EXPLORA LA COLECCIÓN 2026</div>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="{% url 'catalogo:inicio' %}" aria-label="Nexo Tech, inicio"><span class="brand-mark">N</span><span>NEXO<span class="brand-light">TECH</span></span></a>
+      <nav aria-label="Navegación principal">
+        <a href="{% url 'catalogo:inicio' %}" {% if request.path == '/' %}aria-current="page"{% endif %}>Inicio</a>
+        <a href="{% url 'catalogo:lista' %}" {% if request.path == '/catalogo/' %}aria-current="page"{% endif %}>Catálogo</a>
+      </nav>
+      <a class="nav-cta" href="{% url 'catalogo:lista' %}">Ver productos <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+  <footer class="site-footer"><div class="container footer-row"><div><a class="brand footer-brand" href="{% url 'catalogo:inicio' %}"><span class="brand-mark">N</span><span>NEXO<span class="brand-light">TECH</span></span></a><p>Tecnología elegida con criterio.</p></div><div class="footer-right"><span>Proyecto académico · Desarrollo de Aplicaciones Web</span><span>UNCP · 2026</span></div></div></footer>
+</body>
+</html>
